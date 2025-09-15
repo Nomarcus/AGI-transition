@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI → AGI → ASI – Presentation</title>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ===== Custom styles for the presentation ===== */
+    body {
+      background: #f8fafc;
+    }
+    .swiper-slide {
+      /* Ensure each slide takes full height and centers content */
+      height: 100vh;
+    }
+
+    /* Simple floating animation for decorative images */
+    @keyframes float {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .img-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Fade in animation for elements on slide entry */
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fade-in 1s forwards;
+    }
+
+@keyframes spin-in-once {
+  0%   { transform: rotate(0deg) scale(0.8); opacity: 0; }
+  80%  { opacity: 1; }
+  100% { transform: rotate(360deg) scale(1); opacity: 1; }
+}
+.spin-in-once {
+  display: inline-block; /* krävs så h2 kan rotera själv */
+  animation: spin-in-once 1.5s ease-out forwards;
+} </style>
+</head>
+<body class="text-gray-800">
+  <!-- Swiper Container -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1: Title -->
+      <section class="swiper-slide bg-gradient-to-r from-blue-600 to-purple-600 text-white flex flex-col md:flex-row items-center justify-center p-12">
+        <div class="md:w-1/2 p-6">
+          <h1 class="text-5xl font-bold mb-4">AI → AGI → ASI</h1>
+          <p class="text-2xl mb-4">The Journey to Superintelligence</p>
+          <p class="text-sm opacity-80">September&nbsp;2025</p>
+        </div>
+        <div class="md:w-1/2 p-6 flex justify-center">
+          <img src="robot.png" alt="Futuristic robot" class="max-w-full h-auto rounded-xl shadow-2xl" />
+        </div>
+      </section>
+
+      <!-- Slide 2: Exponential Development with Animated Chart -->
+      <section class="swiper-slide bg-gray-50 flex flex-col items-center justify-start p-12">
+        <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">The Exponential Development</h2>
+        <div class="relative w-full max-w-7xl h-[35rem] md:h-[40rem] mb-8">
+          <img src="curve.png" alt="Development curve" class="absolute top-0 left-0 w-full h-full object-contain pointer-events-none opacity-100" />
+          <canvas id="curveChart" class="relative z-10"></canvas>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 w-full max-w-5xl">
+          <div class="p-6 bg-white rounded-lg shadow-md fade-in">
+            <div class="text-2xl mb-2 flex items-center"><span class="mr-2">📈</span><strong>Current Phase</strong></div>
+            <p class="text-base">Gradual improvement, growing datasets and better algorithms drive today’s AI progress. Agents, MCP, Multi-model</p>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow-md fade-in">
+            <div class="text-2xl mb-2 flex items-center"><span class="mr-2">🚀</span><strong>AGI Breakthrough</strong></div>
+            <p class="text-base">A sudden acceleration when self-improvement begins and recursive development takes off.</p>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow-md fade-in">
+            <div class="text-2xl mb-2 flex items-center"><span class="mr-2">⚡️</span><strong>ASI Explosion</strong></div>
+            <p class="text-base">Exponential growth, unlimited improvement and an intelligence explosion changes everything.</p>
+        </div>
+      </section>
+
+      <!-- Slide 3: Narrow AI (ANI) -->
+      <section class="swiper-slide bg-white flex flex-col md:flex-row items-center justify-center p-12">
+        <div class="md:w-1/2 p-6">
+          <h2 class="text-4xl font-bold text-blue-600 mb-4">Narrow AI (ANI)</h2>
+          <p class="mb-4">Artificial Narrow Intelligence consists of systems designed for very specific tasks and excels within their limited domain, but cannot generalise beyond what they were trained for.</p>
+          <ul class="list-disc list-inside space-y-1 mb-4">
+            <li><strong>Language models:</strong> ChatGPT, Claude</li>
+            <li><strong>Image generation:</strong> DALL-E, Midjourney</li>
+            <li><strong>Code assistants:</strong> GitHub Copilot</li>
+            <li><strong>Medical diagnostics:</strong> Image recognition</li>
+            <li><strong>Games:</strong> AlphaGo, OpenAI Five</li>
+          </ul>
+          <p class="italic text-gray-600">Limitation: These systems excel only within their domain.</p>
+        </div>
+        <div class="md:w-1/2 p-6 flex justify-center">
+          <img src="chat.png" alt="AI conversation" class="max-w-full h-auto rounded-xl shadow-md" />
+        </div>
+      </section>
+
+      <!-- Slide 4: AGI -->
+      <section class="swiper-slide bg-white flex flex-col md:flex-row items-center justify-center p-12">
+        <div class="md:w-1/2 p-6">
+          <h2 class="text-4xl font-bold text-red-600 mb-4">AGI – Artificial General Intelligence</h2>
+          <p class="mb-4">Artificial General Intelligence refers to systems that can perform all cognitive tasks humans can, at the same level or better.</p>
+          <ul class="list-disc list-inside space-y-1 text-base mb-2">
+            <li><strong>Learns quickly</strong> – masters new domains without retraining</li>
+            <li><strong>Reasoning & planning</strong> – logic, problem-solving, creative strategy</li>
+            <li><strong>Understands context</strong> – handles complex situations and nuance</li>
+            <li><strong>Generalizes</strong> – applies knowledge to entirely new situations</li>
+          </ul>
+        </div>
+        <div class="md:w-1/2 p-6 flex justify-center">
+          <img src="brain.png" alt="Digital brain" class="max-w-full h-auto rounded-xl shadow-md img-float"  />
+        </div>
+      </section>
+
+      <!-- Slide 5: ASI -->
+      <section class="swiper-slide bg-white flex flex-col md:flex-row items-center justify-center p-12">
+        <div class="md:w-1/2 p-6 flex justify-center order-2 md:order-1">
+          <img src="super.png" alt="Superintelligence" class="max-w-full h-auto rounded-xl shadow-md img-float" />
+        </div>
+        <div class="md:w-1/2 p-6 order-1 md:order-2">
+          <h2 class="text-4xl font-bold text-orange-500 mb-4">ASI – Artificial Superintelligence</h2>
+          <p class="mb-4">Artificial Superintelligence surpasses humans in all cognitive domains.</p>
+          <ul class="list-disc list-inside space-y-1 text-base mb-2">
+            <li><strong>1000× faster</strong> than human thinking</li>
+            <li><strong>Perfect memory</strong> and unlimited parallelisation</li>
+            <li><strong>Self-improving</strong> – continuously designing improved versions of itself</li>
+            <li><strong>Infinite scalability</strong> – more hardware equals more intelligence</li>
+          </ul>
+          </div>
+      </section>
+
+      <!-- Slide 6: AGI Capabilities -->
+      <section class="swiper-slide bg-gray-50 flex flex-col md:flex-row items-center justify-center p-12">
+        <div class="md:w-1/2 p-6">
+          <h2 class="text-3xl font-bold text-red-600 mb-4">AGI – Example Capabilities</h2>
+          <p class="mb-4">Unlike ANI’s narrow focus, AGI will master tasks that need broad reasoning, creativity and understanding across many fields.</p>
+          <ul class="list-disc list-inside space-y-3 text-base">
+            <li><strong>24/7 Personal Doctor:</strong> Listens to your voice or wearable data and delivers a full treatment plan.</li>
+            <li><strong>Breakthrough Scientist:</strong> Designs an entire multi-year experiment and writes a publish-ready paper.</li>
+            <li><strong>Global Mega-Project Manager:</strong> Plans and coordinates a 100-city renewable-energy grid.</li>
+            <li><strong>Office Productivity Wizard:</strong> Automates entire office workflows from email to budgeting.</li>
+          </ul>
+        </div>
+        <div class="md:w-1/2 p-6 flex justify-center">
+          <img src="agi_tasks.png" alt="AGI tasks" class="max-w-full h-auto rounded-xl shadow-md" />
+        </div>
+      </section>
+
+      <!-- Slide 7: ASI Capabilities -->
+      <section class="swiper-slide bg-gray-50 flex flex-col md:flex-row items-center justify-center p-12">
+        <div class="md:w-1/2 p-6 order-2 md:order-1">
+          <img src="asi_tasks.png" alt="ASI tasks" class="max-w-full h-auto rounded-xl shadow-md" />
+        </div>
+        <div class="md:w-1/2 p-6 order-1 md:order-2">
+          <h2 class="text-3xl font-bold text-orange-500 mb-4">ASI – Example Capabilities</h2>
+          <p class="mb-4">ASI goes beyond even AGI, operating at superhuman speed and scale with creativity far past any human-level general intelligence.</p>
+          <ul class="list-disc list-inside space-y-3 text-base">
+            <li><strong>Instant Drug Discovery</strong> – designs and validates medicines in minutes.</li>
+            <li><strong>Planet-Scale Climate Engineering</strong> – coordinates precise global interventions.</li>
+            <li><strong>Fundamental Science Breakthroughs</strong> – derives new physical laws in hours.</li>
+            <li><strong>Recursive Self-Improvement</strong> – redesigns its own algorithms and hardware.</li>
+            <li><strong>Interstellar Exploration</strong> – manages autonomous missions to distant star systems.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 8: Future & Conclusion -->
+      <section class="swiper-slide bg-white flex flex-col items-center justify-start p-12">
+        <h2 class="text-4xl font-bold mb-6 text-center">Future &amp; Conclusion</h2>
+        <div class="flex flex-col md:flex-row items-center w-full max-w-5xl">
+          <div class="md:w-1/2 p-6">
+            <h3 class="text-2xl font-semibold mb-2">What’s happening right now?</h3>
+            <ul class="list-disc list-inside space-y-1 text-base mb-4">
+              <li><strong>Research:</strong> AI safety and alignment</li>
+              <li><strong>Regulation:</strong> EU AI Act and national strategies</li>
+              <li><strong>Companies:</strong> Multi-billion investments in AI and Datacenters</li>
+              <li><strong>Society:</strong> Preparing for AGI/ASI</li>
+              <li><strong>The AI Race:</strong> Nations and tech giants competing for largest GPU clusters and advanced models.</li>
+            </ul>
+            <p>We are facing the greatest technological transformation ever. How we handle the transition to AGI and ASI will determine humanity’s future.</p>
+          </div>
+          <div class="md:w-1/2 p-6 flex justify-center">
+            <img src="future.png" alt="Future network" class="max-w-full h-auto rounded-xl shadow-md" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 9: Final Question with spin-in animation -->
+   <section class="swiper-slide bg-gradient-to-r from-purple-700 to-indigo-700
+                flex flex-col items-center justify-center text-white p-12">
+  <h2 class="text-5xl font-bold mb-6 text-center final-heading">…or is this just hype?</h2>
+  <p class="text-xl text-center max-w-3xl mb-8">
+    Are we truly on the edge of an intelligence explosion, or are we
+    overestimating the pace of progress?
+    <br/><br/>
+    <B>WHAT DO YOU THINK?</B>
+  </p>
+</section>
+
+    </div>
+
+    <!-- Swiper navigation & pagination -->
+    <div class="swiper-button-next text-gray-700"></div>
+    <div class="swiper-button-prev text-gray-700"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Initialize Swiper
+      const swiper = new Swiper('.swiper', {
+    direction: 'horizontal',
+    loop: false,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    keyboard: { enabled: true },
+  });
+
+  // Lägg till spin-animation på h2 när sista sliden är aktiv
+  swiper.on('slideChange', () => {
+    const heading = document.querySelector('.final-heading');
+    if (swiper.activeIndex === swiper.slides.length - 1) {
+      heading.classList.add('spin-in-once');
+    }
+  });
+    // Example placeholder for chart rendering
+    // const curveChartRendered = false;
+    // const GRAPH_ANIMATION_DELAY = 500;
+    // function renderCurveChart(){ /* your chart.js code */ }
+    // swiper.on('slideChange', () => {
+    //   if (swiper.activeIndex === 2 && !curveChartRendered) {
+    //     setTimeout(renderCurveChart, GRAPH_ANIMATION_DELAY);
+    //   }
+    // });
+  </script>
+</body>
+</html>
